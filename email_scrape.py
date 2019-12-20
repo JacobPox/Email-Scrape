@@ -32,9 +32,13 @@ def find_emails(text_to_read):
 	if not mo: #if mo is empty a.k.a nothing found
 		print("No emails found.")
 		return 0
-	print("Here are the emails found: {}".format(mo))
-
+	emails = []
+	for email in mo: #removes unnecessary repeat of domain name
+		emails.append(email[0])
+	print("Here are the emails found:")
+	for email in emails:
+		print(email)
 #main program
 data_source = load_data()
 find_emails(data_source)
-print("Exiting program...")
+print("\nExiting program...")
